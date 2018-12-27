@@ -41,6 +41,17 @@ class D3ScreenTransitionDiagram {
             out: [],
         };
     }
+    getScreenSize (data, screen) {
+        if (data.size)
+            return data.size;
+
+        let padding_both = screen.padding * 2;
+
+        return {
+            w: padding_both + data.name.length * 14 * 1.3,
+            h: padding_both + 14,
+        };
+    }
     makeScreen (data) {
         let screen = this.getTemplateNode();
         screen.name.contents = data.name;
@@ -51,15 +62,14 @@ class D3ScreenTransitionDiagram {
         if (data.location)
             screen.location = data.location;
 
-        let padding_both = screen.padding * 2;
-        screen.size = {
-            w: padding_both + data.name.length * 14,
-            h: padding_both + 14,
-        };
+        screen.size = this.getScreenSize (data, screen);
 
         let ports = this.makeScreenPorts(data);
         screen.ports.in = ports.in;
         screen.ports.out = ports.out;
+
+        if (data.link)
+            screen.link.uri = data.link.uri;
 
         return screen;
     }
@@ -177,32 +187,6 @@ class D3ScreenTransitionDiagram {
             start: { x: e.x, y: e.y }
         };
     }
-    moveScreenNode (d, e, place) {
-
-        d.location.x += e.x - d._drag.start.x;
-        d.location.y += e.y - d._drag.start.y;
-
-        place
-            .selectAll('g.screen')
-            .data([d], (d) => { return d._id; })
-            .attr("transform", (d) => {
-                return "translate(" + d.location.x + "," + d.location.y + ")";
-            });
-
-        place
-            .selectAll('text.location-size')
-            .text((d) => {
-                let text = '';
-                text += 'x=' + Math.floor(d.location.x) + ', ';
-                text += 'y=' + Math.floor(d.location.y) + ', ';
-                text += 'w=' + Math.floor(d.size.w) + ', ';
-                text += 'h=' + Math.floor(d.size.h) + '';
-                return text;
-            });
-        
-        this.drawEdge('update', d.ports.in.items);
-        this.drawEdge('update', d.ports.out.items);
-    }
     screenDraged (d, place) {
         let e = d3.event;
         this.moveScreenNode(d, e, place);
@@ -230,19 +214,51 @@ class D3ScreenTransitionDiagram {
     addScreenLink (group) {
         return group.append('a')
             .attr('class', 'screen-link')
-            .attr('xmlns:xlink', (d) => {
+            .attr('href', (d) => {
                 return d.link.uri;
             });
     }
+    getScreenBodyBackgroud (d) {
+        if (d._class=='GROUP')
+            return 'none';
+
+        if (d._class=='START')
+            return (d.background && d.background.color) ? d.background.color : '#fff';
+
+        return (d.background && d.background.color) ? d.background.color : '#fff';
+    }
+    getScreenBodyStyleStrokeDasharray (d) {
+        if (d._class=='GROUP')
+            return 3;
+
+        return 0;
+    };
+    getScreenBodyR (d) {
+        if (d._class=='GROUP')
+            return 3;
+
+        if (d._class=='OUTSIDER')
+            return 0;
+
+        if (d._class=='START')
+            return 14 * 1.5;
+
+        return 8;
+    };
     addScreenBody (a) {
+        let self = this;
+
         let rect = a.append('rect')
             .attr('class', 'screen-body')
             .attr('width', (d) => { return d.size.w;})
             .attr('height', (d) => { return d.size.h;})
-            .attr('rx', (d) => { return 8;})
-            .attr('ry', (d) => { return 8;})
+            .attr('rx', (d) => { return self.getScreenBodyR(d); })
+            .attr('ry', (d) => { return self.getScreenBodyR(d); })
+            .style('stroke-dasharray', (d) => {
+                return self.getScreenBodyStyleStrokeDasharray (d);
+            })
             .attr('fill', (d) => {
-                return (d.background && d.background.color) ? d.background.color : '#fff';
+                return self.getScreenBodyBackgroud(d);
             })
             .attr('stroke', (d) => {
                 return (d.stroke && d.stroke.color) ? d.stroke.color : '#333';
@@ -275,7 +291,18 @@ class D3ScreenTransitionDiagram {
         this.addScreenBody(a);
         this.addScreenBodyText(a);
     }
+    getLocationSize(d) {
+                let text = '';
+                text += 'id=' + d._id + ', ';
+                text += 'x=' + Math.floor(d.location.x) + ', ';
+                text += 'y=' + Math.floor(d.location.y) + ', ';
+                text += 'w=' + Math.floor(d.size.w) + ', ';
+                text += 'h=' + Math.floor(d.size.h) + '';
+                return text;
+    }
     drawLocationSize (groups) {
+        let self = this;
+
         groups.append('text')
             .attr('class', 'location-size')
             .attr("x", (d) => { return d.padding; })
@@ -283,13 +310,9 @@ class D3ScreenTransitionDiagram {
                 return d.padding + d.size.h + 14;
             })
             .attr('fill', '#595455')
+            .attr('fong-size', 12)
             .text((d) => {
-                let text = '';
-                text += 'x=' + Math.floor(d.location.x) + ', ';
-                text += 'y=' + Math.floor(d.location.y) + ', ';
-                text += 'w=' + Math.floor(d.size.w) + ', ';
-                text += 'h=' + Math.floor(d.size.h) + '';
-                return text;
+                return this.getLocationSize(d);
             });
     }
     drawPorts (groups) {
@@ -336,6 +359,27 @@ class D3ScreenTransitionDiagram {
         this.drawLocationSize(groups);
         this.drawPorts(groups);
     }
+    moveScreenNode (d, e, place) {
+
+        d.location.x += e.x - d._drag.start.x;
+        d.location.y += e.y - d._drag.start.y;
+
+        place
+            .selectAll('g.screen')
+            .data([d], (d) => { return d._id; })
+            .attr("transform", (d) => {
+                return "translate(" + d.location.x + "," + d.location.y + ")";
+            });
+
+        place
+            .selectAll('text.location-size')
+            .text((d) => {
+                return this.getLocationSize(d);
+            });
+
+        this.drawEdge('update', d.ports.in.items);
+        this.drawEdge('update', d.ports.out.items);
+    }
     /* **************************************************************** *
        Draw Edge
      * **************************************************************** */
@@ -367,7 +411,7 @@ class D3ScreenTransitionDiagram {
             .attr('y1', (d) => { return d.from.ports.out[0].location.y + d.from.location.y; })
             .attr('x2', (d) => { return d.to.ports.in[0].location.x    + d.to.location.x; })
             .attr('y2', (d) => { return d.to.ports.in[0].location.y    + d.to.location.y;})
-            .attr('stroke', '#949495')
+            .attr('stroke', '#dcdddd')
             .attr('stroke-width', 2);
     }
     /* **************************************************************** *
