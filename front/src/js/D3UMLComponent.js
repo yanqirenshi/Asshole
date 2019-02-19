@@ -1,3 +1,9 @@
+class D3UMLComponetBase {}
+class D3UMLComponetIcon {}
+class D3UMLComponetConnector {}
+class D3UMLComponetJoint {}
+class D3UMLComponetEdge {}
+
 class D3UMLComponent {
     constructor (options) {
     }

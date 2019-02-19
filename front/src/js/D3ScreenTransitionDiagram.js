@@ -20,6 +20,9 @@ class D3ScreenTransitionDiagram {
         return {
             name: { contents: '????????', font: null },
             link: { uri: '#' },
+            background: {
+                color: '#ffffff'
+            },
             // sizeing
             padding: 11,
             location: {
@@ -58,6 +61,9 @@ class D3ScreenTransitionDiagram {
         screen._id = data._id;
         screen._class = data._class;
         screen._core  = data;
+
+        if (data.background)
+            screen.background.color = data.background.color;
 
         if (data.location)
             screen.location = data.location;
