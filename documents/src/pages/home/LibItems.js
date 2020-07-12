@@ -17,8 +17,8 @@ function LibItems (props) {
 
     return (
         <div style={style.root}>
-          {props.source.map((d) => {
-              return <LibItem source={d} />;
+          {props.source.map((d, i) => {
+              return <LibItem key={i} source={d} />;
           })}
         </div>
     );

@@ -1,6 +1,8 @@
 import React from 'react';
 
 import PageHome from './pages/PageHome';
+import PageData from './pages/PageData';
+import PageUsage from './pages/PageUsage';
 
 const style = {
     root: {
@@ -8,6 +10,7 @@ const style = {
         width: '100vw',
         height: '100vh',
         background: '#fce2c4',
+        overflow: 'auto',
     }
 };
 
@@ -15,6 +18,8 @@ function App() {
   return (
       <div style={style.root}>
         <PageHome />
+        <PageData />
+        <PageUsage />
       </div>
   );
 }

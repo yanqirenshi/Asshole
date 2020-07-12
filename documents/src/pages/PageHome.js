@@ -1,11 +1,12 @@
 import React from 'react';
 
-import LibItems from './LibItems';
+import LibItems from './home/LibItems';
 
 const style = {
     root: {
         width: '100%',
-        height: '100%',
+        // height: '100%',
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
