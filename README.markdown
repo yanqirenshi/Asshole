@@ -2,6 +2,8 @@
 
 きっと何者にもなれない Asshole たちに告げる。
 
+- npm: [@yanqirenshi/assh0le](https://www.npmjs.com/package/@yanqirenshi/assh0le)
+
 # Description
 
 不可逆なドキュメントを生み出す者達＝Asshole へのアンチテーゼとしてのプロジェクト。
