@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Asshole/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/Asshole/static/js/main.f48b92e1.chunk.js",
-    "main.js.map": "/Asshole/static/js/main.f48b92e1.chunk.js.map",
+    "main.js": "/Asshole/static/js/main.015f169a.chunk.js",
+    "main.js.map": "/Asshole/static/js/main.015f169a.chunk.js.map",
     "runtime-main.js": "/Asshole/static/js/runtime-main.63e8c60e.js",
     "runtime-main.js.map": "/Asshole/static/js/runtime-main.63e8c60e.js.map",
-    "static/js/2.b4b10098.chunk.js": "/Asshole/static/js/2.b4b10098.chunk.js",
-    "static/js/2.b4b10098.chunk.js.map": "/Asshole/static/js/2.b4b10098.chunk.js.map",
+    "static/js/2.4420e6d0.chunk.js": "/Asshole/static/js/2.4420e6d0.chunk.js",
+    "static/js/2.4420e6d0.chunk.js.map": "/Asshole/static/js/2.4420e6d0.chunk.js.map",
     "index.html": "/Asshole/index.html",
-    "precache-manifest.3c68d3defaeb4a3b4ec5e92cd3a40c11.js": "/Asshole/precache-manifest.3c68d3defaeb4a3b4ec5e92cd3a40c11.js",
+    "precache-manifest.9736299ac38da404dc8b742a40aff78a.js": "/Asshole/precache-manifest.9736299ac38da404dc8b742a40aff78a.js",
     "service-worker.js": "/Asshole/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/Asshole/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.b4b10098.chunk.js.LICENSE.txt": "/Asshole/static/js/2.b4b10098.chunk.js.LICENSE.txt"
+    "static/js/2.4420e6d0.chunk.js.LICENSE.txt": "/Asshole/static/js/2.4420e6d0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.63e8c60e.js",
-    "static/js/2.b4b10098.chunk.js",
+    "static/js/2.4420e6d0.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.f48b92e1.chunk.js"
+    "static/js/main.015f169a.chunk.js"
   ]
 }
