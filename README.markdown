@@ -2,6 +2,7 @@
 
 きっと何者にもなれない Asshole たちに告げる。
 
+- docs: [GitHub Pages](https://yanqirenshi.github.io/Asshole/)
 - npm: [@yanqirenshi/assh0le](https://www.npmjs.com/package/@yanqirenshi/assh0le)
 
 # Description
