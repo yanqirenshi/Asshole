@@ -24,7 +24,7 @@ const style = {
             fontFamily: "Sawarabi Mincho",
             color: "rgb(255,0,0)",
             fontWeight: 'bold',
-            fontSize: '88px',
+            fontSize: '111px',
             textShadow: '0px 0px 11px rgb(250, 191, 20)',
         },
     }
@@ -66,11 +66,11 @@ function PageHome () {
             <p>
               <span style={style.title.jp}>きっと何者にもなれない</span>
               <span style={style.title.en}>Asshole</span>
-              <span style={style.title.jp}>たちに告げる。</span>
+              <span style={style.title.jp}>たちに告げる</span>
             </p>
           </div>
 
-          <div>
+          <div style={{marginTop: '55px'}}>
             <LibItems source={items.first}/>
             <LibItems source={items.second}/>
             <LibItems source={items.third}/>
