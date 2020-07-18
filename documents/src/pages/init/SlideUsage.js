@@ -5,7 +5,10 @@ import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const style = {
     root: {
-        fontSize: '16px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
     },
 };
 
@@ -28,14 +31,20 @@ const data = [
     "export default AssholeGraph;" ,
 ];
 
-function UsageInit () {
+function SlideUsage () {
     return (
-        <div style={style.root}>
-          <SyntaxHighlighter language="javascript" style={dark}>
-            {data.join('\n')}
-          </SyntaxHighlighter>
-        </div>
+        <section className="slide">
+          <div style={style.root}>
+            <h1 className="title is-1">Asshole.init()</h1>
+
+            <div>
+              <SyntaxHighlighter language="javascript" style={dark}>
+                {data.join('\n')}
+              </SyntaxHighlighter>
+            </div>
+          </div>
+        </section>
     );
 }
 
-export default UsageInit;
+export default SlideUsage;

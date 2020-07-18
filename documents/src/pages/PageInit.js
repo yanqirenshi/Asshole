@@ -1,6 +1,7 @@
 import React from 'react';
 
-import UsageInit from './init/UsageInit';
+import SlideUsage from './init/SlideUsage';
+import SlideOverview from './init/SlideOverview';
 
 const style = {
     root: {
@@ -12,32 +13,13 @@ const style = {
         justifyContent: 'flex-start',
         alignItems: 'center',
     },
-    title: {
-        contents: {
-            fontSize: '55px',
-            marginBottom: '0px',
-            fontWeight: 'bold',
-        }
-    },
-    overview: {
-        padding: '33px',
-        background: '#f3f3f3',
-        borderRadius: '11px',
-        fontSize: '22px',
-        marginTop: '33px',
-    }
 };
 
 function PageInit () {
     return (
         <div style={style.root}>
-          <div>
-            <p style={style.title.contents}>Init</p>
-          </div>
-
-          <div>
-            <UsageInit />
-          </div>
+          <SlideUsage />
+          <SlideOverview />
         </div>
     );
 }
