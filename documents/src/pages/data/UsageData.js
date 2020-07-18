@@ -5,6 +5,7 @@ import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const style = {
     root: {
+        fontSize: '16px',
     },
 };
 
@@ -13,32 +14,17 @@ const data = [
     "import D3Xyz from '../js/D3Xyz.js';" ,
     "" ,
     "function AssholeGraph (props) {" ,
-    "    const [d3xyz] = useState(new D3Xyz().init({",
-    "        svg: {",
-    "            selector: '#asshole-graph',",
-    "            w: 1111, h: 333,",
-    "        }",
-    "    }));",
-    "" ,
-    "    useEffect(() => { d3xyz.data(props.graph_data); });" ,
+    "    const [d3xyz] = useState(new D3Xyz().init({}));" ,
     "" ,
     "    useEffect(() => {" ,
-    "        window.addEventListener('resize', () => {" ,
-    "            d3er.svgSize(document.getElementById('asshole-graph-container'));" ,
-    "        });" ,
-    "    }, []);" ,
-    "" ,
-    "    return (" ,
-    "        <div id='asshole-graph-container'>" ,
-    "          <svg id='asshole-graph'/>" ,
-    "        </div>" ,
-    "    );" ,
+    "        d3xyz.data(props.graph_data);" ,
+    "    });" ,
     "}" ,
     "" ,
     "export default AssholeGraph;" ,
 ];
 
-function UsageReactCode () {
+function UsageData () {
     return (
         <div style={style.root}>
           <SyntaxHighlighter language="javascript" style={dark}>
@@ -48,4 +34,4 @@ function UsageReactCode () {
     );
 }
 
-export default UsageReactCode;
+export default UsageData;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import UsageReactCode from './usage/UsageReactCode';
+import UsageInit from './init/UsageInit';
 
 const style = {
     root: {
@@ -19,27 +19,27 @@ const style = {
             fontWeight: 'bold',
         }
     },
-    react_code: {
+    overview: {
+        padding: '33px',
         background: '#f3f3f3',
-        padding: '22px 33px',
         borderRadius: '11px',
-        fontSize: '14px',
+        fontSize: '22px',
         marginTop: '33px',
-    },
+    }
 };
 
-function PageUsage () {
+function PageInit () {
     return (
         <div style={style.root}>
           <div>
-            <p style={style.title.contents}>Usage</p>
+            <p style={style.title.contents}>Init</p>
           </div>
 
           <div>
-            <UsageReactCode />
+            <UsageInit />
           </div>
         </div>
     );
 }
 
-export default PageUsage;
+export default PageInit;

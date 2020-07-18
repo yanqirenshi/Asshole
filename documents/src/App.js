@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PageHome from './pages/PageHome';
+import PageInit from './pages/PageInit';
 import PageData from './pages/PageData';
 import PageUsage from './pages/PageUsage';
 
@@ -18,6 +19,7 @@ function App() {
   return (
       <div style={style.root}>
         <PageHome />
+        <PageInit />
         <PageData />
         <PageUsage />
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import DataOverview from './data/DataOverview';
+import UsageData from './data/UsageData';
 
 const style = {
     root: {
@@ -20,11 +21,12 @@ const style = {
         }
     },
     overview: {
-        padding: '33px',
+        padding: '22px 33px',
         background: '#f3f3f3',
         borderRadius: '11px',
         fontSize: '22px',
         marginTop: '33px',
+        marginBottom: '22px',
     }
 };
 
@@ -37,6 +39,10 @@ function PageData () {
 
           <div style={style.overview}>
             <DataOverview />
+          </div>
+
+          <div>
+            <UsageData />
           </div>
         </div>
     );
