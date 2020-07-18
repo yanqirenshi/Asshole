@@ -6,6 +6,7 @@ import PageHome from './pages/PageHome';
 import PageInit from './pages/PageInit';
 import PageData from './pages/PageData';
 import PageUsage from './pages/PageUsage';
+import PageWhats from './pages/PageWhats';
 
 const style = {
     root: {
@@ -26,12 +27,19 @@ function App() {
                     <div className="section" style={style.root}>
                       <PageHome />
                     </div>
+
+                    <div className="section" style={style.root}>
+                      <PageWhats />
+                    </div>
+
                     <div className="section" style={style.root}>
                       <PageInit />
                     </div>
+
                     <div className="section" style={style.root}>
                       <PageData />
                     </div>
+
                     <div className="section" style={style.root}>
                       <PageUsage />
                     </div>
