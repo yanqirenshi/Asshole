@@ -71,6 +71,9 @@ export default class Asshole {
     getSvgElement () {
         return this.getSvg().d3Element();
     }
+    focus () {
+        this.getSvg().focus();
+    }
     /* ******** */
     /*  Layers  */
     /* ******** */
