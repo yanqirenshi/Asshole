@@ -5,12 +5,14 @@ import Font       from './data/Font.js';
 import Position   from './data/Position.js';
 import Rectangle  from './data/Rectangle.js';
 import Stroke     from './data/Stroke.js';
+import Label      from './data/Label.js';
+import Padding    from './data/Padding.js';
 import Hierarchy  from './Hierarchy.js';
-import Padding    from './Padding.js';
-import Label      from './Label.js';
+import Geometry   from './Geometry.js' ;
 
 export {
     Hierarchy,
+    Geometry,
     Background,
     Font,
     Position,
