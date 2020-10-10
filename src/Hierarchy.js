@@ -28,7 +28,7 @@ export default class Hierarchy {
         };
     }
     ///// ////////////////////////////////////////////////////////////////
-    /////   Sizing
+    /////   Fitting
     ///// ////////////////////////////////////////////////////////////////
     calChildrenSizeCore (rect_a, rect_b) {
         if (!rect_a.from) {
@@ -60,9 +60,17 @@ export default class Hierarchy {
 
         this.calChildrenSizeCore(rect_a, rect_b);
     }
-    sizing (data, parent) {
+    fitting (data, parent) {
         // データのコピー
         data._size = {...data.size};
+        data._position = {...data.position};
+
+        if (parent) {
+            const padding = parent.padding || 0;
+
+            data._position.x += parent._position.x + padding;
+            data._position.y += parent._position.y + padding;
+        }
 
         const children = data.children;
         if (!children || children.length===0)
@@ -76,7 +84,7 @@ export default class Hierarchy {
 
         // children のサイズを計算
         for (let child of children) {
-            this.sizing(child, data);
+            this.fitting(child, data);
             this.calChildrenSize(rect_children, child);
         }
 
@@ -122,35 +130,5 @@ export default class Hierarchy {
 
         if (data._size.h < last_size.h)
             data._size.h = last_size.h;
-    }
-    ///// ////////////////////////////////////////////////////////////////
-    /////   Positioning
-    ///// ////////////////////////////////////////////////////////////////
-    positioning (data, parent) {
-        // データのコピー
-        data._position = {...data.position};
-
-        if (parent) {
-            const padding = parent.padding || 0;
-
-            data._position.x += parent._position.x + padding;
-            data._position.y += parent._position.y + padding;
-        }
-
-        let children = data.children;
-
-        if (!children || children.length===0)
-            // TODO: paddng の考慮。
-            return;
-
-        for (let child of children)
-            this.positioning(child, data);
-    }
-    ///// ////////////////////////////////////////////////////////////////
-    /////   Main
-    ///// ////////////////////////////////////////////////////////////////
-    fitting (data) {
-        this.sizing(data);
-        this.positioning(data);
     }
 }
