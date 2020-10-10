@@ -14,4 +14,5 @@ module.exports = {
         "**/src/**/*.js",
         "!**/node_modules/**",
     ],
-};
+    transformIgnorePatterns: ["/node_modules/d3"],
+ };

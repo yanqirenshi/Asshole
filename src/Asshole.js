@@ -1,5 +1,19 @@
 import D3Svg from '@yanqirenshi/d3.svg';
 
+import Background from './data/Background.js';
+import Font       from './data/Font.js';
+import Position   from './data/Position.js';
+import Rectangle  from './data/Rectangle.js';
+import Stroke     from './data/Stroke.js';
+
+export {
+    Background,
+    Font,
+    Position,
+    Rectangle,
+    Stroke
+};
+
 export default class Asshole {
     constructor () {
         this.selector = null;
