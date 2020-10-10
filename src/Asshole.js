@@ -5,13 +5,15 @@ import Font       from './data/Font.js';
 import Position   from './data/Position.js';
 import Rectangle  from './data/Rectangle.js';
 import Stroke     from './data/Stroke.js';
+import Hierarchy  from './Hierarchy.js';
 
 export {
+    Hierarchy,
     Background,
     Font,
     Position,
     Rectangle,
-    Stroke
+    Stroke,
 };
 
 export default class Asshole {
