@@ -67,7 +67,50 @@ test('fitting: child with padding', () => {
 /////
 /////
 /////
-test('fitting: parson have a grandchild', () => {
+test('fitting: have a child', () => {
+    const position = { x: 100, y: 200 };
+    const size = { w: 100, h: 200 };
+    const padding = 10;
+    const child ={
+        position: { x: 0, y: 0 },
+        size: { w: 200, h: 300 },
+    };
+    const data = {
+        position: {...position},
+        size: {...size},
+        padding: padding,
+        children: [child],
+    };
+
+    it.fitting(data);
+
+    expect(data._size).toMatchObject({
+        w: padding + child.size.w + padding, // 220
+        h: padding + child.size.h + padding, // 320
+    });
+});
+
+test('fitting: have a children', () => {
+    const padding = 10;
+    const data = {
+        position: { x: 100, y: 200 },
+        size: { w: 100, h: 200 },
+        padding: padding,
+        children: [
+            { position: { x: 100, y: 200 }, size: { w: 300, h: 400 } },
+            { position: { x: 300, y: 400 }, size: { w: 500, h: 600 } },
+        ],
+    };
+
+    it.fitting(data);
+
+    expect(data._size).toMatchObject({
+        w:  820,
+        h: 1020,
+    });
+});
+
+test('fitting: have a grandchild', () => {
     const padding = 10;
     const data = {
         code: 'node1',
@@ -93,7 +136,7 @@ test('fitting: parson have a grandchild', () => {
 
     it.fitting(data);
 
-    expect(data.size).toMatchObject({
+    expect(data._size).toMatchObject({
         w:  740,
         h: 1040,
     });

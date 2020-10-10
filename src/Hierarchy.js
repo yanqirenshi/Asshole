@@ -16,8 +16,8 @@ export default class Hierarchy {
                 y: data.position.y,
             },
             to: {
-                x: data.position.x + data.size.w,
-                y: data.position.y + data.size.h,
+                x: data.position.x + data._size.w,
+                y: data.position.y + data._size.h,
             }
         };
     }
@@ -61,11 +61,8 @@ export default class Hierarchy {
         this.calChildrenSizeCore(rect_a, rect_b);
     }
     sizing (data, parent) {
-        // 元の値は退避する。
-        data._size = data.size;
-
         // データのコピー
-        data.size = {...data.size};
+        data._size = {...data.size};
 
         const children = data.children;
         if (!children || children.length===0)
@@ -120,11 +117,11 @@ export default class Hierarchy {
         // 最終サイズ
         const last_size = this.rect2size(rect);
 
-        if (data.size.w < last_size.w)
-            data.size.w = last_size.w;
+        if (data._size.w < last_size.w)
+            data._size.w = last_size.w;
 
-        if (data.size.h < last_size.h)
-            data.size.h = last_size.h;
+        if (data._size.h < last_size.h)
+            data._size.h = last_size.h;
     }
     ///// ////////////////////////////////////////////////////////////////
     /////   Positioning
