@@ -6,6 +6,8 @@ import Position   from './data/Position.js';
 import Rectangle  from './data/Rectangle.js';
 import Stroke     from './data/Stroke.js';
 import Hierarchy  from './Hierarchy.js';
+import Padding    from './Padding.js';
+import Label      from './Label.js';
 
 export {
     Hierarchy,
@@ -14,6 +16,8 @@ export {
     Position,
     Rectangle,
     Stroke,
+    Padding,
+    Label,
 };
 
 export default class Asshole {
