@@ -52,7 +52,7 @@ export default class Asshole {
         let d3svg = new D3Svg();
 
         d3svg.init({
-            d3_element: this.selector,
+            selector: this.selector,
             w:     this.w,
             h:     this.h,
             look:  this.look,
