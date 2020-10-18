@@ -49,6 +49,8 @@ export default class Asshole {
     /*  SVG     */
     /* ******** */
     makeSvg () {
+        this.makeSvgBefore();
+
         let d3svg = new D3Svg();
 
         d3svg.init({
@@ -59,8 +61,17 @@ export default class Asshole {
             scale: this.scale,
         });
 
+        this._d3svg = d3svg;
+
+        this.makeLayers();
+        this.makeArrow();
+
+        this.makeSvgAfter();
+
         return d3svg;
     }
+    makeSvgBefore () {}
+    makeSvgAfter () {}
     makeArrow () {
         const svg = this.getSvgElement();
 
@@ -83,10 +94,7 @@ export default class Asshole {
         if (this._d3svg)
             return this._d3svg;
 
-        this._d3svg = this.makeSvg();
-
-        this.makeLayers();
-        this.makeArrow();
+        this.makeSvg();
 
         return this._d3svg;
     }
