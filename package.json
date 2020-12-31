@@ -1,6 +1,6 @@
 {
     "name": "@yanqirenshi/assh0le",
-    "version": "0.0.9",
+    "version": "0.1.0",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -19,7 +19,7 @@
     },
     "homepage": "https://yanqirenshi.github.io/Asshole/",
     "dependencies": {
-        "@yanqirenshi/d3.svg": "0.0.14",
+        "@yanqirenshi/d3.svg": "0.1.0",
         "d3": "^5.15.0"
     },
     "devDependencies": {
