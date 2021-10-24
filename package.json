@@ -28,5 +28,7 @@
         "babel-jest": "^25.2.4",
         "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
         "jest": "^25.2.4"
+        "react-measure": "^2.5.2",
+        "@yanqirenshi/d3.svg": "^0.3.0",
     }
 }
