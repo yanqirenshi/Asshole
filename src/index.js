@@ -1,8 +1,8 @@
 import Asshole from './components/Asshole.js';
 
-import Colon from './components/Colon.js';
-import Geometry from './components/Geometry.js';
-import Hierarchy from './components/Hierarchy.js';
+import Colon from './js/Colon.js';
+import Geometry from './js/Geometry.js';
+import Hierarchy from './js/Hierarchy.js';
 
 import Background from './js/data/Background.js';
 import Font       from './js/data/Font.js';
