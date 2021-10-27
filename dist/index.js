@@ -67,11 +67,11 @@ exports.default = void 0;
 
 var _Asshole = _interopRequireDefault(require("./components/Asshole.js"));
 
-var _Colon = _interopRequireDefault(require("./components/Colon.js"));
+var _Colon = _interopRequireDefault(require("./js/Colon.js"));
 
-var _Geometry = _interopRequireDefault(require("./components/Geometry.js"));
+var _Geometry = _interopRequireDefault(require("./js/Geometry.js"));
 
-var _Hierarchy = _interopRequireDefault(require("./components/Hierarchy.js"));
+var _Hierarchy = _interopRequireDefault(require("./js/Hierarchy.js"));
 
 var _Background = _interopRequireDefault(require("./js/data/Background.js"));
 
