@@ -50,13 +50,19 @@ export default class Colon {
     selector (v) {
         if (!this._d3svg) return;
 
+        this.selector_setBefore();
+
         this._d3svg.selector(v, false);
+
+        this.selector_setAfter();
 
         this.drawGrids();
 
         if (this._first_draw===null)
             this.draw();
     }
+    selector_setBefore () { /* Aspect method */ }
+    selector_setAfter  () { /* Aspect method */ }
     d3Element () {
         if (!this._d3svg) return null;
         return this._d3svg.d3Element();
@@ -128,6 +134,8 @@ export default class Colon {
     /** ***************************************************************
      *  Data
      * **************************************************************** */
+    data_setBefore (v) {}
+    data_setAfter (v) {}
     data (v) {
         const data = this._data;
         if (arguments.length===0)

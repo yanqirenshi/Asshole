@@ -132,11 +132,23 @@ var Colon = /*#__PURE__*/function () {
     key: "selector",
     value: function selector(v) {
       if (!this._d3svg) return;
+      this.selector_setBefore();
 
       this._d3svg.selector(v, false);
 
+      this.selector_setAfter();
       this.drawGrids();
       if (this._first_draw === null) this.draw();
+    }
+  }, {
+    key: "selector_setBefore",
+    value: function selector_setBefore() {
+      /* Aspect method */
+    }
+  }, {
+    key: "selector_setAfter",
+    value: function selector_setAfter() {
+      /* Aspect method */
     }
   }, {
     key: "d3Element",
@@ -233,6 +245,12 @@ var Colon = /*#__PURE__*/function () {
      *  Data
      * **************************************************************** */
 
+  }, {
+    key: "data_setBefore",
+    value: function data_setBefore(v) {}
+  }, {
+    key: "data_setAfter",
+    value: function data_setAfter(v) {}
   }, {
     key: "data",
     value: function data(v) {
