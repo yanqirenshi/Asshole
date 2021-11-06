@@ -37,6 +37,10 @@ export default class Colon {
             ]
         });
 
+        this._data = null;
+
+        this._first_draw = null;
+
         if (params.camera)
             this.camera(params.camera);
     }
@@ -45,7 +49,13 @@ export default class Colon {
      * **************************************************************** */
     selector (v) {
         if (!this._d3svg) return;
+
         this._d3svg.selector(v, false);
+
+        this.drawGrids();
+
+        if (this._first_draw===null)
+            this.draw();
     }
     d3Element () {
         if (!this._d3svg) return null;
@@ -113,12 +123,34 @@ export default class Colon {
             .attr("y1",d=>d.y1)
             .attr("y2",d=>d.y2)
             .attr("stroke-width", d=>d.size)
-            .attr("stroke","#0e9aa7");
+            .attr("stroke","#e0e0e0");
     }
     /** ***************************************************************
      *  Data
      * **************************************************************** */
-    data (data) {
+    data (v) {
+        const data = this._data;
+        if (arguments.length===0)
+            return data;
+
+        this._data = v;
+
+        const d3svg = this._d3svg;
+
+        if (!d3svg || !d3svg.selector())
+            return data;
+
+        if (this._first_draw===null)
+            this._first_draw = new Date();
+
+        this.draw();
+
+        return data;
+    }
+    /** ***************************************************************
+     *  Draw (Overwride)
+     * **************************************************************** */
+    draw () {
         return this;
     }
 }

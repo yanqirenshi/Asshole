@@ -10,16 +10,14 @@ export default function Asshole (props) {
     const [svg_id, setSvgID] = useState(null);
     const [bounds, setBounds] = useState({width:0, height:0});
 
-    const data = props.data;
     const rectum = props.rectum;
 
     useEffect(()=> setSvgID(makeSvgID(props.id)), [props.id]);
 
     useEffect(()=> {
         if (!svg_id) return;
+
         rectum.selector('#' + svg_id);
-        rectum.drawGrids();
-        rectum.data(data);
     }, [svg_id]);
 
     return (

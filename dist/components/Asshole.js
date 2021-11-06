@@ -49,7 +49,6 @@ function Asshole(props) {
       bounds = _useState4[0],
       setBounds = _useState4[1];
 
-  var data = props.data;
   var rectum = props.rectum;
   (0, _react.useEffect)(function () {
     return setSvgID(makeSvgID(props.id));
@@ -57,8 +56,6 @@ function Asshole(props) {
   (0, _react.useEffect)(function () {
     if (!svg_id) return;
     rectum.selector('#' + svg_id);
-    rectum.drawGrids();
-    rectum.data(data);
   }, [svg_id]);
   return /*#__PURE__*/_react.default.createElement(_reactMeasure.default, {
     bounds: true,

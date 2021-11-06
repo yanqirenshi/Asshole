@@ -119,6 +119,8 @@ var Colon = /*#__PURE__*/function () {
         code: 'foreground'
       }]
     });
+    this._data = null;
+    this._first_draw = null;
     if (params.camera) this.camera(params.camera);
   }
   /** ***************************************************************
@@ -132,6 +134,9 @@ var Colon = /*#__PURE__*/function () {
       if (!this._d3svg) return;
 
       this._d3svg.selector(v, false);
+
+      this.drawGrids();
+      if (this._first_draw === null) this.draw();
     }
   }, {
     key: "d3Element",
@@ -222,7 +227,7 @@ var Colon = /*#__PURE__*/function () {
         return d.y2;
       }).attr("stroke-width", function (d) {
         return d.size;
-      }).attr("stroke", "#0e9aa7");
+      }).attr("stroke", "#e0e0e0");
     }
     /** ***************************************************************
      *  Data
@@ -230,7 +235,23 @@ var Colon = /*#__PURE__*/function () {
 
   }, {
     key: "data",
-    value: function data(_data) {
+    value: function data(v) {
+      var data = this._data;
+      if (arguments.length === 0) return data;
+      this._data = v;
+      var d3svg = this._d3svg;
+      if (!d3svg || !d3svg.selector()) return data;
+      if (this._first_draw === null) this._first_draw = new Date();
+      this.draw();
+      return data;
+    }
+    /** ***************************************************************
+     *  Draw (Overwride)
+     * **************************************************************** */
+
+  }, {
+    key: "draw",
+    value: function draw() {
       return this;
     }
   }]);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Asshole from './libs/index.js';
 import Rectum from './Rectum.js';
@@ -12,8 +12,8 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     graph_area: {
-        width: 1000 + (22*2),
-        height: 800 + (22*2),
+        width:  800 + (22*2),
+        height: 600 + (22*2),
         background: '#eee',
         padding: 22,
         borderRadius: 5,
@@ -21,15 +21,15 @@ const style = {
 };
 
 export default function App() {
+    const [data, setData] = useState([]);
+
+    useEffect(()=> rectum.data(data), [data]);
+
     return (
         <div style={style}>
           <div style={style.graph_area}>
-            <Asshole id="asshole-graph"
-                     rectum={rectum}
-                     data={graph_data}/>
+            <Asshole id="asshole-graph" rectum={rectum}/>
           </div>
         </div>
     );
 }
-
-const graph_data = [];
