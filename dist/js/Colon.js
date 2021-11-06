@@ -111,7 +111,7 @@ var Colon = /*#__PURE__*/function () {
     _classCallCheck(this, Colon);
 
     this._d3svg = new _d.default({
-      layers: [{
+      layers: params.layers || [{
         id: 1,
         code: 'background'
       }, {

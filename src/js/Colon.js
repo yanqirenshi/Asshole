@@ -31,7 +31,7 @@ export default class Colon {
      * **************************************************************** */
     constructor (params={}) {
         this._d3svg = new D3Svg({
-            layers: [
+            layers: params.layers || [
                 { id: 1, code: 'background' },
                 { id: 2, code: 'foreground' },
             ]
