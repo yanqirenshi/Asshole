@@ -3,7 +3,7 @@ import Measure from 'react-measure';
 import sha256 from 'sha256';
 
 function makeSvgID (id) {
-    return 'svg_'+sha256(id + (new Date()).toISOString());
+    return 'svg_' + sha256(id + (new Date()).toISOString());
 }
 
 export default function Asshole (props) {

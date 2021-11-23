@@ -34,7 +34,12 @@ export default class Colon {
             layers: params.layers || [
                 { id: 1, code: 'background' },
                 { id: 2, code: 'foreground' },
-            ]
+            ],
+            transform: params.transform || {
+                k: 1.0,
+                x: 0.0,
+                y: 0.0,
+            },
         });
 
         this._data = null;

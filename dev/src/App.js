@@ -3,7 +3,13 @@ import React, { useState, useEffect } from 'react';
 import Asshole from './libs/index.js';
 import Rectum from './Rectum.js';
 
-const rectum = new Rectum();
+const rectum = new Rectum({
+    transform:  {
+        k: 1.0,
+        x: 0.0,
+        y: 0.0,
+    },
+});
 
 const style = {
     width: '100vw',
