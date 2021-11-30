@@ -110,20 +110,27 @@ var Colon = /*#__PURE__*/function () {
 
     _classCallCheck(this, Colon);
 
+    var layers = params.layers;
+    var transform = params.transform;
     this._d3svg = new _d.default({
-      layers: params.layers || [{
+      layers: layers || [{
         id: 1,
         code: 'background'
       }, {
         id: 2,
         code: 'foreground'
       }],
-      transform: params.transform || {
+      transform: transform || {
         k: 1.0,
         x: 0.0,
         y: 0.0
       }
     });
+    this._grid = params.grid || {
+      draw: true,
+      size: 10000,
+      span: 100
+    };
     this._data = null;
     this._first_draw = null;
     if (params.camera) this.camera(params.camera);
@@ -234,6 +241,7 @@ var Colon = /*#__PURE__*/function () {
   }, {
     key: "drawGrids",
     value: function drawGrids() {
+      if (this._grid.draw === false) return;
       this.layer('background').selectAll('line.grid').data(this.gridsData()).enter().append("line").attr("x1", function (d) {
         return d.x1;
       }).attr("x2", function (d) {

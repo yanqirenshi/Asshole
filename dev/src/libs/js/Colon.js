@@ -30,17 +30,26 @@ export default class Colon {
      *    camera    ???
      * **************************************************************** */
     constructor (params={}) {
+        const layers = params.layers;
+        const transform = params.transform;
+
         this._d3svg = new D3Svg({
-            layers: params.layers || [
+            layers: layers || [
                 { id: 1, code: 'background' },
                 { id: 2, code: 'foreground' },
             ],
-            transform: params.transform || {
+            transform: transform || {
                 k: 1.0,
                 x: 0.0,
                 y: 0.0,
             },
         });
+
+        this._grid = params.grid || {
+            draw: true,
+            size: 10000,
+            span:   100,
+        };
 
         this._data = null;
 
@@ -124,6 +133,9 @@ export default class Colon {
         return out;
     }
     drawGrids () {
+        if (this._grid.draw===false)
+            return;
+
         this.layer('background')
             .selectAll('line.grid')
             .data(this.gridsData())
