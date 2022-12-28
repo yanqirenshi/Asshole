@@ -1,6 +1,6 @@
 {
     "name": "@yanqirenshi/assh0le",
-    "version": "0.2.11",
+    "version": "0.2.12",
     "main": "dist/index.js",
     "dependencies": {
         "@yanqirenshi/d3.svg": "0.3.2",
