@@ -51,12 +51,24 @@ export default class Colon {
             span:   100,
         };
 
+        this._svg = params.svg || {
+            style: {
+                background: "#ffffff",
+            }
+        };
+
         this._data = null;
 
         this._first_draw = null;
 
         if (params.camera)
             this.camera(params.camera);
+    }
+    /** ***************************************************************
+     *  svg
+     * **************************************************************** */
+    svg () {
+        return this._svg;
     }
     /** ***************************************************************
      *  Wrapper

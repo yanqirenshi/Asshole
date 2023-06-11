@@ -25,7 +25,7 @@ export default function Asshole (props) {
           {({ measureRef }) => (
               <div ref={measureRef} style={{width:'100%', height:'100%'}}>
                 <svg id={svg_id}
-                     style={{background:'#fff'}}
+                     style={rectum.svg().style}
                      width={bounds.width}
                      height={bounds.height} />
               </div>

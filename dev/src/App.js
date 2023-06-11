@@ -9,6 +9,15 @@ const rectum = new Rectum({
         x: 0.0,
         y: 0.0,
     },
+    svg: {
+        style: {
+            background: '#f8ff8f',
+            backgroundImage: 'url(https://yanqirenshi.github.io/Mandara/assets/images/background/IMG_1519.JPG)',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+        },
+    },
 });
 
 const style = {

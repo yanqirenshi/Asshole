@@ -131,16 +131,30 @@ var Colon = /*#__PURE__*/function () {
       size: 10000,
       span: 100
     };
+    this._svg = params.svg || {
+      style: {
+        background: "#ffffff"
+      }
+    };
     this._data = null;
     this._first_draw = null;
     if (params.camera) this.camera(params.camera);
   }
   /** ***************************************************************
-   *  Wrapper
+   *  svg
    * **************************************************************** */
 
 
   _createClass(Colon, [{
+    key: "svg",
+    value: function svg() {
+      return this._svg;
+    }
+    /** ***************************************************************
+     *  Wrapper
+     * **************************************************************** */
+
+  }, {
     key: "selector",
     value: function selector(v) {
       if (!this._d3svg) return;

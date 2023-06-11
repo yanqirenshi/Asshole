@@ -72,9 +72,7 @@ function Asshole(props) {
       }
     }, /*#__PURE__*/_react.default.createElement("svg", {
       id: svg_id,
-      style: {
-        background: '#fff'
-      },
+      style: rectum.svg().style,
       width: bounds.width,
       height: bounds.height
     }));
