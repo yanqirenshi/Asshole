@@ -1,11 +1,13 @@
 {
     "name": "@yanqirenshi/assh0le",
-    "version": "0.2.13",
+    "version": "0.3.0",
     "main": "dist/index.js",
     "dependencies": {
         "@yanqirenshi/d3.svg": "0.3.2",
         "react-measure": "^2.5.2",
-        "sha256": "^0.2.0"
+        "sha256": "^0.2.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -38,8 +40,6 @@
         "@babel/core": "^7.15.8",
         "@babel/preset-env": "^7.15.8",
         "@babel/preset-react": "^7.14.5",
-        "babel-loader": "^8.2.3",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "babel-loader": "^8.2.3"
     }
 }
