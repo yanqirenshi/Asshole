@@ -1,22 +1,13 @@
 {
   "files": {
-    "main.css": "/Asshole/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/Asshole/static/js/main.015f169a.chunk.js",
-    "main.js.map": "/Asshole/static/js/main.015f169a.chunk.js.map",
-    "runtime-main.js": "/Asshole/static/js/runtime-main.63e8c60e.js",
-    "runtime-main.js.map": "/Asshole/static/js/runtime-main.63e8c60e.js.map",
-    "static/js/2.4420e6d0.chunk.js": "/Asshole/static/js/2.4420e6d0.chunk.js",
-    "static/js/2.4420e6d0.chunk.js.map": "/Asshole/static/js/2.4420e6d0.chunk.js.map",
+    "main.css": "/Asshole/static/css/main.e6c13ad2.css",
+    "main.js": "/Asshole/static/js/main.9b1ecc9f.js",
     "index.html": "/Asshole/index.html",
-    "precache-manifest.9736299ac38da404dc8b742a40aff78a.js": "/Asshole/precache-manifest.9736299ac38da404dc8b742a40aff78a.js",
-    "service-worker.js": "/Asshole/service-worker.js",
-    "static/css/main.5ecd60fb.chunk.css.map": "/Asshole/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.4420e6d0.chunk.js.LICENSE.txt": "/Asshole/static/js/2.4420e6d0.chunk.js.LICENSE.txt"
+    "main.e6c13ad2.css.map": "/Asshole/static/css/main.e6c13ad2.css.map",
+    "main.9b1ecc9f.js.map": "/Asshole/static/js/main.9b1ecc9f.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.63e8c60e.js",
-    "static/js/2.4420e6d0.chunk.js",
-    "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.015f169a.chunk.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.9b1ecc9f.js"
   ]
 }

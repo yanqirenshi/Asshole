@@ -20,13 +20,21 @@ const style = {
 };
 
 function LibItem (props) {
+    const item = props.source;
+
     return (
-        <a href={props.source.url} style={{textDecoration: 'none'}}>
+        <a href={item.url} style={{textDecoration: 'none'}}>
           <div style={style.root}>
             <div style={style.inner}>
               <p style={style.label}>
-                {props.source.label}
+                {item.label}
               </p>
+            </div>
+            <div>
+              {item.prod.map((l,i)=> <p key={i}>{l}</p>)}
+            </div>
+            <div>
+              {item.dev.map((l,i)=> <p key={i}>{l}</p>)}
             </div>
           </div>
         </a>
