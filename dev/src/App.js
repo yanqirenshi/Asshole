@@ -1,50 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import Asshole from './libs/index.js';
-import Rectum from './Rectum.js';
+import Box from '@mui/material/Box';
 
-const rectum = new Rectum({
-    transform:  {
-        k: 1.0,
-        x: 0.0,
-        y: 0.0,
-    },
-    svg: {
-        style: {
-            background: '#f8ff8f',
-            backgroundImage: 'url(https://yanqirenshi.github.io/Mandara/assets/images/background/IMG_1519.JPG)',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-        },
-    },
-});
+import Tabs from './Tabs.js';
+import Tab1 from './Tab1.js';
+import Tab2 from './Tab2.js';
 
 const style = {
     width: '100vw',
     height: '100vh',
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
-    graph_area: {
-        width:  800 + (22*2),
-        height: 600 + (22*2),
-        background: '#eee',
-        padding: 22,
-        borderRadius: 5,
-    },
+    flexDirection: 'column',
 };
 
 export default function App() {
-    const [data, setData] = useState([]);
-
-    useEffect(()=> rectum.data(data), [data]);
+    const [tabs, setTabs] = useState({
+        selected: 'test1',
+        list: [
+            { code:'test1', label: 'Test1' },
+            { code:'test2', label: 'Test2' },
+        ],
+    });
 
     return (
-        <div style={style}>
-          <div style={style.graph_area}>
-            <Asshole id="asshole-graph" rectum={rectum}/>
-          </div>
-        </div>
+        <Box sx={style}>
+
+          <Box sx={{mb:2}}>
+            <Tabs tabs={tabs}
+                  onChange={(new_tabs)=>setTabs(new_tabs)}/>
+          </Box>
+
+          {'test1'===tabs.selected && <Tab1/>}
+          {'test2'===tabs.selected && <Tab2/>}
+        </Box>
     );
 }
