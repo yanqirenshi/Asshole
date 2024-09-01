@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Asshole from './libs/index.js';
-import Rectum from './Rectum.js';
+import D3Template, { Rectum } from './template/index.js';
 
 const style = {
     width: '100vw',
